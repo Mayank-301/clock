@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(181, 195, 199);
+    }
+    .main{
+        display: flex;
+        margin-top: 20%;
+    }
+    .hour, .minute, .second{
+        border-radius: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 60px;
+        font-weight: 600;
+        font-family: monospace;
+        height: 120px;
+        width: 90px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        background: linear-gradient(135deg ,#FAF9F6, #DCD7CE,#ACA69A);
+        text-align: center;    
+    }
+    .div{
+        font-size: 90px;
+        display: flex;
+        text-align: center;
+        align-items: center;
+    }
+    .btns{
+      position: fixed;
+      top: 70%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    button{
+        border-radius: 5px;
+        background-color: transparent;
+        grid-row: repeat(3, 1fr);
+        padding: 10px 25px;
+        margin-bottom: 5px;
+    }
+    button.active {
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  border: 2px solid #0056b3;
+}
+</style>
+<body>
+
+    <div class="main">
+       
+        <div class="hour" id="hour">00</div>
+        <div class="div">:</div>
+        <div class="minute" id="minute">00</div>
+        <div class="div">:</div>
+        <div class="second" id="second">00</div>
+
+        
+    </div>
+    
+    <div class="btns">
+        <button onclick="handleClockClick(this)" data-timezone="Asia/Kolkata" data-location="India" >India</button>
+        <button onclick= "handleClockClick(this)" data-timezone="Europe/Berlin" data-location="Germany">Germany</button>
+        <button onclick="handleClockClick(this)" data-timezone="Asia/Dubai" data-location="Dubai">Dubai</button>
+        <button onclick="handleClockClick(this)" data-timezone="Australia/Sydney" data-location="Australia">Australia </button>
+        <button onclick="handleClockClick(this)" data-timezone="Europe/London" data-location="UK">UK (United Kingdom)</button>
+        <button onclick="handleClockClick(this)" data-timezone="Asia/Tokyo" data-location="Japan">Japan</button>
+    
+    </div>
+
+     <script>
+
+function clearActiveState() {
+  document.querySelectorAll('button').forEach(btn => {
+    btn.classList.remove('active');
+
+  });
+}
+  let clockInterval = null; // For foreign clocks
+  let localInterval = null; // For local clock
+
+  // LOCAL CLOCK
+  function updateLocalClock() {
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const seconds = now.getSeconds().toString().padStart(2, '0');
+
+    document.getElementById('hour').textContent = hours;
+    document.getElementById('minute').textContent = minutes;
+    document.getElementById('second').textContent = seconds;
+  }
+  
+      function handleClockClick(button) {
+  const timeZone = button.dataset.timezone;
+  const location = button.dataset.location;
+
+  // Remove 'active' class from all buttons
+  document.querySelectorAll('button').forEach(btn => {
+    btn.classList.remove('active');
+  });
+
+  // Add 'active' to the clicked button
+  button.classList.add('active');
+
+  // Start the clock for selected timezone
+  startClock(timeZone, location);
+}
+
+
+  function startLocalClock() {
+    clearInterval(clockInterval); // Stop foreign clock
+    updateLocalClock();
+    localInterval = setInterval(updateLocalClock, 1000);
+  }
+
+  // FOREIGN CLOCK
+  function startClock(timeZone, location) {
+    clearInterval(localInterval); // Stop local clock
+    clearInterval(clockInterval); // Stop previous foreign clock
+
+    updateTime(timeZone);
+    clockInterval = setInterval(() => {
+      updateTime(timeZone);
+    }, 1000);
+  }
+
+  function updateTime(timeZone, location) {
+    const formatter = new Intl.DateTimeFormat('en-US', {
+      timeZone: timeZone,
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false
+    });
+
+    const parts = formatter.formatToParts(new Date());
+
+    let hour, minute, second;
+
+    parts.forEach(part => {
+      if (part.type === 'hour') hour = part.value;
+      if (part.type === 'minute') minute = part.value;
+      if (part.type === 'second') second = part.value;
+    });
+
+    document.getElementById('hour').textContent = hour.padStart(2, '0');
+    document.getElementById('minute').textContent = minute.padStart(2, '0');
+    document.getElementById('second').textContent = second.padStart(2, '0');
+    
+  }
+
+  // Start local clock initially
+  startLocalClock();
+</script>
+    
+</body>
+</html>

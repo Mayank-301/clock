@@ -50,6 +50,6 @@ Edit
 git clone https://github.com/Mayank-301/clock.git
 
 # Navigate to the project directory
-cd world-clock
+cd clock
 
 # Open index.html in your browser

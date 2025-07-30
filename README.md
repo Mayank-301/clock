@@ -47,7 +47,7 @@ bash
 Copy
 Edit
 # Clone the repository
-git clone https://github.com/Mayank-301/world-clock.git
+git clone https://github.com/Mayank-301/clock.git
 
 # Navigate to the project directory
 cd world-clock

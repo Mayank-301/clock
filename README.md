@@ -1,17 +1,16 @@
-🕒 World Clock Web App
+#🕒 World Clock Web App
 A sleek and interactive World Clock built using HTML, CSS, and JavaScript. Select any country to view its current time in real-time with a responsive and modern UI.
 
-🔗 Live Demo
-👉 Check it Out on Firebase Hosting
+## 🔗 Live Demo
+
 (https://clock-35f3e.web.app/)
 
-📸 Preview
+## 📸 Preview
 
 ![Game Screenshot](public/Screenshot.png)
 
+## 🛠 Features
 
-
-🛠 Features
 Real-time digital clock
 
 Select any country to view its local time
@@ -25,9 +24,10 @@ Fully responsive across devices
 Smooth transitions (if added)
 
 🌍 Country Time Support
-Choose from a dropdown of countries, and the clock automatically updates to show the correct time in that region based on timezone offsets.
+Choose button of countries, and the clock automatically updates to show the correct time in that region based on timezone offsets.
 
-📂 Tech Stack
+## 📂 Tech Stack
+
 HTML5
 
 CSS3
@@ -40,12 +40,11 @@ World Time API (optional if used)
 
 Firebase Hosting
 
-🚀 Getting Started
+## 🚀 Getting Started
+
 To run this project locally:
 
-bash
-Copy
-Edit
+```bash
 # Clone the repository
 git clone https://github.com/Mayank-301/clock.git
 

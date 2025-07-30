@@ -7,7 +7,9 @@ A sleek and interactive World Clock built using HTML, CSS, and JavaScript. Selec
 
 📸 Preview
 
-(public/Screenshot.png)
+![Game Screenshot](public/Screenshot.png)
+
+
 
 🛠 Features
 Real-time digital clock

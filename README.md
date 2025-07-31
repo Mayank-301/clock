@@ -1,4 +1,5 @@
-#🕒 World Clock 
+# #🕒 World Clock
+
 
 World Clock Web App A sleek and interactive World Clock built using HTML, CSS, and JavaScript. Select any country to view its current time in real-time with a responsive and modern UI.
 
@@ -21,8 +22,6 @@ World Clock Web App A sleek and interactive World Clock built using HTML, CSS, a
 - Clean and modern UI
 
 - Fully responsive across devices
-
-- Smooth transitions (if added)
 
 🌍 Country Time Support
 Choose button of countries, and the clock automatically updates to show the correct time in that region based on timezone offsets.

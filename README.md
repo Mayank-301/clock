@@ -14,15 +14,10 @@ World Clock Web App A sleek and interactive World Clock built using HTML, CSS, a
 ## 🛠 Features
 
 - Real-time digital clock
-
 - Select any country to view its local time
-
 - Auto-updates every second
-
 - Clean and modern UI
-
 - Fully responsive across devices
-
 🌍 Country Time Support
 Choose button of countries, and the clock automatically updates to show the correct time in that region based on timezone offsets.
 

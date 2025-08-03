@@ -24,11 +24,8 @@ Choose button of countries, and the clock automatically updates to show the corr
 ## 📂 Tech Stack
 
 - HTML5
-
 - CSS3
-
 - JavaScript
-
 - Firebase Hosting
 
 ## 🚀 Getting Started
